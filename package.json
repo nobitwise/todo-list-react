@@ -11,10 +11,6 @@
     "prepare": "husky && husky install"
   },
   "lint-staged": {
-    "**/*": [
-      "eslint --fix",
-      "prettier --write --ignore-unknown"
-    ],
     "*.{ts,tsx}": "eslint --cache --fix",
     "*.{js,css,md}": "prettier --write"
   },
