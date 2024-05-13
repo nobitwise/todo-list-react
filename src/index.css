@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  @apply font-sans;
+input[type='text'] {
+  @apply min-h-10;
 }
