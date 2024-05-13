@@ -1,4 +1,3 @@
-import './App.css'
 import { ListProvider } from './ListContext'
 import List from './components/ui/molecules/List'
 import Header from './components/ui/templates/Header'
