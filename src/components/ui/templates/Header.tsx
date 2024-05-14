@@ -6,12 +6,10 @@ import FormField from '../atoms/FormField'
 const Header = () => {
   const [text, setText] = useState('')
 
-  const editForm = (text: string) => {
-    setText(text)
-  }
-
-  const add = (event: { preventDefault: () => void }) => {
+  // adds the item to the list
+  const add = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+
     dispatch({
       type: 'added',
       item: {
@@ -19,24 +17,30 @@ const Header = () => {
         done: false
       }
     })
+
+    // clears text input field
     setText('')
   }
 
   const dispatch = useListDispatch()
 
   return (
-    <header className="flex-none w-full">
-      <h1>TODO List</h1>
+    <header className="container py-10 mx-auto flex-none w-full text-center">
+      <h1 className='font-kalam text-5xl'>Yet another TODO List</h1>
 
       {/* create item form */}
-      <form onSubmit={add} className='flex items-center space-x-3'>
+      <form
+        onSubmit={add}
+        className="flex items-center justify-center py-5 space-x-3"
+      >
         <FormField>
           <input
             type="text"
             required
             placeholder="Write here..."
             value={text}
-            onChange={event => editForm(event.target.value)}
+            name="new-item"
+            onChange={event => setText(event.target.value)}
           />
         </FormField>
 

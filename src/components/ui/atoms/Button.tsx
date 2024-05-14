@@ -11,8 +11,8 @@ const buttonVariantMap = {
 }
 
 const buttonColorMap = {
-  primary: 'bg-green-600 text-white hover:bg-green-500',
-  danger: 'bg-red-600 text-white hover:bg-red-500'
+  primary: 'bg-green-400 text-white hover:bg-green-500',
+  danger: 'bg-red-400 text-white hover:bg-red-500'
 }
 
 const Button = ({ children, variant = 'default', color = 'primary', ...props }: ButtonProps) => {

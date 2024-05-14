@@ -6,13 +6,15 @@ import Footer from './components/ui/templates/Footer'
 const App = () => {
   return (
     <ListProvider>
-      <Header />
+      <div className="text-slate-700 bg-gradient-to-b from-slate-100 to-slate-300 h-full flex flex-col">
+        <Header />
 
-      <main className="flex-auto flex flex-col overflow-y-auto h-full">
-        <List />
-      </main>
+        <main className="flex-auto container mx-auto flex flex-col overflow-y-auto h-full">
+          <List />
+        </main>
 
-      <Footer />
+        <Footer />
+      </div>
     </ListProvider>
   )
 }
