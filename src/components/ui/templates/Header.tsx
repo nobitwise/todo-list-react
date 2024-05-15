@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useListDispatch } from '../../../ListContext'
 import Button from '../atoms/Button'
-import FormField from '../atoms/FormField'
+import PlusCircle from '../../icons/PlusCircle'
 
 const Header = () => {
   const [text, setText] = useState('')
@@ -25,26 +25,30 @@ const Header = () => {
   const dispatch = useListDispatch()
 
   return (
-    <header className="container py-10 mx-auto flex-none w-full text-center">
-      <h1 className='font-kalam text-5xl'>Yet another TODO List</h1>
+    <header className="container pt-10 pb-2 mx-auto flex-none w-full text-center">
+      <h1 className="font-kalam text-4xl">Yet another TODO List</h1>
 
       {/* create item form */}
       <form
         onSubmit={add}
         className="flex items-center justify-center py-5 space-x-3"
       >
-        <FormField>
-          <input
-            type="text"
-            required
-            placeholder="Write here..."
-            value={text}
-            name="new-item"
-            onChange={event => setText(event.target.value)}
-          />
-        </FormField>
+        <input
+          type="text"
+          required
+          placeholder="Write here..."
+          value={text}
+          name="new-item"
+          onChange={event => setText(event.target.value)}
+          className="rounded-lg border-none ring-1 ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-green-500 transition"
+        />
 
-        <Button type="submit">Add</Button>
+        <Button
+          variant="icon"
+          type="submit"
+        >
+          <PlusCircle />
+        </Button>
       </form>
     </header>
   )
