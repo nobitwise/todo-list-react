@@ -1,6 +1,6 @@
 import { Dispatch, ReactNode, Reducer, createContext, useContext, useReducer } from 'react'
-import { ListAction, ListItem, colorList } from './types'
 import { v4 as uuidv4 } from 'uuid'
+import { ListAction, ListItem, colorList } from '@/types'
 
 const initialList: ListItem[] = []
 
@@ -8,6 +8,7 @@ const setListOnLocalStorage = (list: ListItem[]) => {
   localStorage.setItem('list', JSON.stringify(list))
 }
 
+// ref: https://react.dev/reference/react/useReducer
 const listReducer: Reducer<ListItem[], ListAction> = (list, action): ListItem[] => {
   switch (action.type) {
     case 'added': {
@@ -35,7 +36,7 @@ const listReducer: Reducer<ListItem[], ListAction> = (list, action): ListItem[] 
       setListOnLocalStorage(newList)
       return newList
     }
-    case 'setted': {
+    case 'set': {
       const newList = action.list as ListItem[]
 
       setListOnLocalStorage(newList)

@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { useListDispatch } from '../../../ListContext'
-import Button from '../atoms/Button'
-import PlusCircle from '../../icons/PlusCircle'
+import Button from '@/components/ui/atoms/Button'
+import PlusCircle from '@/components/icons/PlusCircle'
+import { useListDispatch } from '@/ListContext'
 
 const Header = () => {
   const [text, setText] = useState('')
+  const dispatch = useListDispatch()
 
   // adds the item to the list
   const add = (event: React.FormEvent<HTMLFormElement>) => {
@@ -22,31 +23,40 @@ const Header = () => {
     setText('')
   }
 
-  const dispatch = useListDispatch()
-
   return (
-    <header className="container pt-10 pb-2 mx-auto flex-none w-full text-center">
-      <h1 className="font-kalam text-4xl">Yet another TODO List</h1>
+    <header className="p-5 container text-center pt-7 sm:text-left sm:pt-10 mx-auto flex-none w-full">
+      <h1 className="font-kalam text-3xl sm:text-4xl mb-4">Yet another TODO List</h1>
 
       {/* create item form */}
       <form
         onSubmit={add}
-        className="flex items-center justify-center py-5 space-x-3"
+        className="flex-col space-y-3 sm:flex-row flex items-center sm:justify-normal justify-center sm:space-y-0 sm:space-x-3"
       >
-        <input
-          type="text"
+        <textarea
           required
           placeholder="Write here..."
           value={text}
           name="new-item"
           onChange={event => setText(event.target.value)}
-          className="rounded-lg border-none ring-1 ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-green-500 transition"
+          className="w-full sm:w-auto rounded-lg border-none ring-1 ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-green-500 transition"
         />
 
+        {/* mobile button */}
         <Button
           variant="icon"
           type="submit"
+          title="Add new Item"
+          className="hidden sm:inline-flex"
         >
+          <PlusCircle />
+        </Button>
+
+        {/* desktop button */}
+        <Button
+          type="submit"
+          className="w-full space-x-3 sm:hidden"
+        >
+          <span>Add new Item</span>
           <PlusCircle />
         </Button>
       </form>

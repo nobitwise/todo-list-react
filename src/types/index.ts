@@ -6,7 +6,7 @@ export interface ListItem {
 }
 
 export interface ListAction {
-  type: 'added' | 'changed' | 'deleted' | 'setted'
+  type: 'added' | 'changed' | 'deleted' | 'set'
   item?: ListItem
   list?: ListItem[]
 }

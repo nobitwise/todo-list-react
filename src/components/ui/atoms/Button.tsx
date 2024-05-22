@@ -1,9 +1,4 @@
-import { ComponentProps } from 'react'
-
-interface ButtonProps extends ComponentProps<'button'> {
-  variant?: 'filled' | 'icon'
-  color?: 'primary' | 'danger'
-}
+import { ButtonProps } from '@/types/ui'
 
 const variantCommonClassesMap = {
   filled: 'px-4 rounded-lg text-white',
@@ -12,7 +7,7 @@ const variantCommonClassesMap = {
 
 const buttonColorMap = {
   filled: {
-    primary: `${variantCommonClassesMap.filled} bg-green-500 hover:bg-green-800 focus-visible:ring-green-400`,
+    primary: `${variantCommonClassesMap.filled} bg-green-600 hover:bg-green-800 focus-visible:ring-green-400`,
     danger: `${variantCommonClassesMap.filled} bg-red-500 hover:bg-red-800 focus-visible:ring-red-400`
   },
   icon: {

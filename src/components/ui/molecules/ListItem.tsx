@@ -1,12 +1,9 @@
-import { ListItem as ListItemType, colorList } from '../../../types'
-import Button from '../atoms/Button'
-import { useListDispatch } from '../../../ListContext'
-import XMark from '../../icons/XMark'
-import Checkbox from '../atoms/Checkbox'
-
-interface ListItemProps {
-  listItem: ListItemType
-}
+import { colorList } from '@/types'
+import { ListItemProps } from '@/types/ui'
+import Button from '@/components/ui/atoms/Button'
+import Checkbox from '@/components/ui/atoms/Checkbox'
+import XMark from '@/components/icons/XMark'
+import { useListDispatch } from '@/ListContext'
 
 const ListItem = ({ listItem }: ListItemProps) => {
   const dispatch = useListDispatch()
@@ -33,6 +30,7 @@ const ListItem = ({ listItem }: ListItemProps) => {
           }
           name={`list-item-${listItem.id}`}
           id={`list-item-${listItem.id}`}
+          title={`${listItem.done ? 'Uncheck' : 'Check'} item`}
         />
 
         {/* deletes the item from the list */}

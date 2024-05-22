@@ -1,9 +1,9 @@
-import List from './components/ui/molecules/List'
-import Header from './components/ui/templates/Header'
-import Footer from './components/ui/templates/Footer'
+import List from '@/components/ui/molecules/List'
+import Header from '@/components/ui/templates/Header'
+import Footer from '@/components/ui/templates/Footer'
 import { useEffect } from 'react'
-import { ListItem } from './types'
-import { useListDispatch } from './ListContext'
+import { ListItem } from '@/types'
+import { useListDispatch } from '@/ListContext'
 
 const App = () => {
   const dispatch = useListDispatch()
@@ -13,10 +13,12 @@ const App = () => {
     try {
       const storageList = JSON.parse(localStorage.getItem('list') ?? '[]') as ListItem[]
 
-      dispatch({ type: 'setted', list: storageList })
+      // sets on the list
+      dispatch({ type: 'set', list: storageList })
     } catch (error) {
       console.error(error)
-      dispatch({ type: 'setted', list: [] })
+      // set empty
+      dispatch({ type: 'set', list: [] })
     }
   }, [])
 
